@@ -1,0 +1,72 @@
+/* SFAD publik sayt — dizayn CSS'i (prototipdan aynan ko'chirilgan) */
+:root{--sfad-red:#C8102E;--sfad-red-dark:#9E0C24;--sfad-gold:#C9A24B;--cream:#FAF7F2;--white:#FFFFFF;--soft:#F3EDE4;--ink:#1D1D1D;--muted:#6F6F6F;--line:rgba(0,0,0,.07);--ease-out:cubic-bezier(.22,1,.36,1);--ease-spring:cubic-bezier(.34,1.56,.64,1);--dur-fast:.25s;--dur:.5s;--dur-slow:.9s}
+[data-sheen]{position:relative;overflow:hidden}
+[data-sheen]::after{content:"";position:absolute;top:0;bottom:0;left:-45%;width:38%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.38),transparent);transform:skewX(-20deg) translateX(0);transition:transform .85s var(--ease-out);pointer-events:none}
+[data-sheen]:hover::after{transform:skewX(-20deg) translateX(460%)}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,'Cairo',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+[dir="rtl"] body{font-family:'Cairo',Manrope,sans-serif}
+a{color:var(--ink);text-decoration:none;transition:color .3s}
+a:hover{color:var(--sfad-red)}
+input,textarea{font-family:inherit}
+@keyframes pulseRing{0%{transform:scale(.5);opacity:.9}100%{transform:scale(2.4);opacity:0}}
+@keyframes floatUp{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-16px) rotate(2deg)}}
+@keyframes floatUpAlt{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-11px) rotate(-2deg)}}
+@keyframes maskUp{from{transform:translateY(112%)}to{transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes dashFlow{to{stroke-dashoffset:-40}}
+#map-mount svg .sfad-country{transition:fill .6s cubic-bezier(0.22,1,0.36,1)}
+#map-mount svg .sfad-country:hover{cursor:default}
+#map-mount svg .sfad-partner{cursor:pointer}
+#map-mount svg .sfad-partner:hover{fill:#E7ECF6!important}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}html{scroll-behavior:auto}}
+@media (max-width:900px){
+  #site-header .hdr-inner{gap:14px!important;padding:0 18px!important;height:64px!important}
+  #site-header img{height:36px!important}
+  #lang-switch{display:none!important}
+  #site-header a[href="tel:+998951466666"]{display:none!important}
+}
+@media (max-width:600px){
+  #hero{min-height:auto!important;padding:96px 0 72px!important}
+  #hero .hero-inner{padding:0 20px!important}
+  #hero h1{font-size:2rem!important;line-height:1.12!important}
+  #hero .hero-ctas{gap:12px!important}
+  #hero .hero-ctas>*{width:100%!important;justify-content:center!important}
+  #overlay-lang{display:flex!important}
+  section{padding-left:0!important;padding-right:0!important}
+  #partner-chips{gap:7px!important}
+}
+
+/* ===== Next.js font o'zgaruvchilariga bog'lash ===== */
+.sfad-site{
+  font-family: var(--font-manrope), Manrope, sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+}
+.sfad-site h1,.sfad-site h2,.sfad-site h3,.sfad-site .u-head{
+  font-family: var(--font-unbounded), Unbounded, sans-serif;
+}
+.sfad-site[dir="rtl"]{ font-family: var(--font-cairo), Cairo, sans-serif; }
+.sfad-site a{ color: inherit; text-decoration: none; transition: color .3s; }
+.sfad-site a:hover{ color: var(--sfad-red); }
+.sfad-site *{ box-sizing: border-box; }
+.sfad-site p{ margin: 0; }
+
+/* Header scrolled holati */
+#site-header.scrolled .sfad-header-inner{ height: 64px; }
+#site-header.scrolled{
+  background: rgba(255,255,255,.88) !important;
+  box-shadow: 0 8px 30px rgba(29,29,29,.07);
+}
+
+/* Mobil (900px) — dizayn spetsifikatsiyasi bo'yicha */
+@media (max-width: 900px){
+  #site-header .sfad-header-inner{ height: 64px !important; gap: 12px !important; padding: 0 16px !important; }
+  #site-header #header-nav{ display: none !important; }
+  #site-header .sfad-header-phone{ display: none !important; }
+  #site-header #lang-switch{ display: none !important; }
+  #site-header img{ height: 36px !important; }
+}
+@media (min-width: 901px){
+  #burger{ display: none !important; }
+}
