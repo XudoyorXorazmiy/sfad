@@ -1,0 +1,208 @@
+[
+  {
+    "n": "Бурёнка choco",
+    "f": "95-1.png",
+    "cat": "choco",
+    "kg": "3 kg",
+    "d": "Sutli-shokoladli qoplamali pechenye",
+    "badgeKind": "hit"
+  },
+  {
+    "n": "Байрам",
+    "f": "2-2.png",
+    "cat": "sugar",
+    "kg": "3 kg",
+    "d": "Kunjutli shakarli pechenye"
+  },
+  {
+    "n": "Ласточка",
+    "f": "68-1.png",
+    "cat": "sugar",
+    "kg": "3 kg",
+    "d": "Klassik shakarli pechenye"
+  },
+  {
+    "n": "Шахмат",
+    "f": "57-1.png",
+    "cat": "sugar",
+    "kg": "3 kg",
+    "d": "Ikki rangli shaxmat naqshli pechenye"
+  },
+  {
+    "n": "Школьник",
+    "f": "5-1.png",
+    "cat": "sugar",
+    "kg": "4 kg",
+    "d": "Sut taʼmli shakarli pechenye"
+  },
+  {
+    "n": "Galet",
+    "f": "6-1.png",
+    "cat": "galet",
+    "kg": "4 kg",
+    "d": "Anʼanaviy galet pechenyesi"
+  },
+  {
+    "n": "Кофе карамель",
+    "f": "7-1.png",
+    "cat": "sugar",
+    "kg": "3 kg",
+    "d": "Kofe-karamel taʼmli pechenye"
+  },
+  {
+    "n": "Завтрак",
+    "f": "8-1.png",
+    "cat": "galet",
+    "kg": "4 kg",
+    "d": "Nonushta uchun yengil galet"
+  },
+  {
+    "n": "Мирослад",
+    "f": "9-1.png",
+    "cat": "sugar",
+    "kg": "4 kg",
+    "d": "Shirin sutli pechenye"
+  },
+  {
+    "n": "Мобилка",
+    "f": "10-1.png",
+    "cat": "kids",
+    "kg": "2 kg",
+    "d": "Bolalar uchun qiziqarli shaklli pechenye"
+  },
+  {
+    "n": "Беллс",
+    "f": "12-1.png",
+    "cat": "sugar",
+    "kg": "3 kg",
+    "d": "Qoʻngʻiroq shaklidagi pechenye"
+  },
+  {
+    "n": "Болажон",
+    "f": "13-1.png",
+    "cat": "kids",
+    "kg": "2 kg",
+    "d": "Bolajonlar sevimli pechenyesi"
+  },
+  {
+    "n": "Домик",
+    "f": "17-1.png",
+    "cat": "sugar",
+    "kg": "3 kg",
+    "d": "Uycha shaklidagi shakarli pechenye"
+  },
+  {
+    "n": "Подушки сладкие",
+    "f": "23-1.png",
+    "cat": "sugar",
+    "kg": "2 kg",
+    "d": "Shirin yostiqcha shirinliklari"
+  },
+  {
+    "n": "Dubai подушки",
+    "f": "25-1.png",
+    "cat": "choco",
+    "kg": "2 kg",
+    "pack": 1,
+    "d": "Pista kremli premium yostiqchalar",
+    "badgeKind": "new"
+  },
+  {
+    "n": "Вафелька мини банан",
+    "f": "29-1.png",
+    "cat": "wafer",
+    "kg": "2 kg",
+    "d": "Banan taʼmli mini vafli"
+  },
+  {
+    "n": "Milky cream",
+    "f": "30-1.png",
+    "cat": "wafer",
+    "kg": "2 kg",
+    "d": "Sutli kremli vafli"
+  },
+  {
+    "n": "Choco cream",
+    "f": "34-1.png",
+    "cat": "wafer",
+    "kg": "2 kg",
+    "d": "Shokolad kremli vafli"
+  },
+  {
+    "n": "Палочки сладкие",
+    "f": "39-1.png",
+    "cat": "sugar",
+    "kg": "3 kg",
+    "d": "Shirin tayoqcha pechenyelar"
+  },
+  {
+    "n": "Mimino",
+    "f": "42-1.png",
+    "cat": "wafer",
+    "kg": "2 kg",
+    "d": "Yengil qatlamli vafli"
+  },
+  {
+    "n": "Авалон choco",
+    "f": "43-1.png",
+    "cat": "choco",
+    "kg": "3.5 kg",
+    "d": "Shokoladli qoplamali pechenye",
+    "badgeKind": "hit"
+  },
+  {
+    "n": "Фламинго choco",
+    "f": "45-1.png",
+    "cat": "choco",
+    "kg": "3 kg",
+    "d": "Shokoladli flamingo pechenyesi"
+  },
+  {
+    "n": "Hello Kitty",
+    "f": "48-1.png",
+    "cat": "kids",
+    "kg": "2 kg",
+    "pack": 1,
+    "d": "Bolalar uchun qadoqlangan pechenye",
+    "badgeKind": "new"
+  },
+  {
+    "n": "Мишка choco",
+    "f": "51-1.png",
+    "cat": "kids",
+    "kg": "2 kg",
+    "pack": 1,
+    "d": "Ayiqcha shaklidagi shokoladli pechenye"
+  },
+  {
+    "n": "Грибочки",
+    "f": "85-1.png",
+    "cat": "sugar",
+    "kg": "2.5 kg",
+    "d": "Qoʻziqorincha shaklidagi pechenye"
+  },
+  {
+    "n": "Без сахара",
+    "f": "59-1.png",
+    "cat": "galet",
+    "kg": "3 kg",
+    "d": "Shakarsiz parhez pechenyesi",
+    "badgeKind": "sugarfree"
+  },
+  {
+    "n": "Kinder round milky",
+    "f": "90-1.png",
+    "cat": "kids",
+    "kg": "1.5 kg",
+    "pack": 1,
+    "d": "Sutli dumaloq bolalar pechenyesi"
+  },
+  {
+    "n": "Sandwich cheese",
+    "f": "94-1.png",
+    "cat": "galet",
+    "kg": "1.5 kg",
+    "pack": 1,
+    "d": "Pishloqli sendvich-krakeri"
+  }
+]

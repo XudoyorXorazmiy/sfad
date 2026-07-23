@@ -1,0 +1,121 @@
+[
+  {
+    "id": "KZ",
+    "name": "Qozog'iston",
+    "flag": "🇰🇿",
+    "x": 690.7,
+    "y": 328.2
+  },
+  {
+    "id": "KG",
+    "name": "Qirg'iziston",
+    "flag": "🇰🇬",
+    "x": 684.3,
+    "y": 329.7
+  },
+  {
+    "id": "TJ",
+    "name": "Tojikiston",
+    "flag": "🇹🇯",
+    "x": 668,
+    "y": 345.6
+  },
+  {
+    "id": "TM",
+    "name": "Turkmaniston",
+    "flag": "🇹🇲",
+    "x": 638.7,
+    "y": 347.8
+  },
+  {
+    "id": "AF",
+    "name": "Afg'oniston",
+    "flag": "🇦🇫",
+    "x": 669,
+    "y": 359.7
+  },
+  {
+    "id": "RU",
+    "name": "Rossiya",
+    "flag": "🇷🇺",
+    "x": 580.5,
+    "y": 273.9
+  },
+  {
+    "id": "CN",
+    "name": "Xitoy",
+    "flag": "🇨🇳",
+    "x": 801.7,
+    "y": 340.8
+  },
+  {
+    "id": "MN",
+    "name": "Mongoliya",
+    "flag": "🇲🇳",
+    "x": 775,
+    "y": 309.6
+  },
+  {
+    "id": "KR",
+    "name": "Janubiy Koreya",
+    "flag": "🇰🇷",
+    "x": 831.4,
+    "y": 349.1
+  },
+  {
+    "id": "SA",
+    "name": "Saudiya Arabistoni",
+    "flag": "🇸🇦",
+    "x": 605.9,
+    "y": 391.4
+  },
+  {
+    "id": "AE",
+    "name": "BAA",
+    "flag": "🇦🇪",
+    "x": 630,
+    "y": 389.8
+  },
+  {
+    "id": "JO",
+    "name": "Iordaniya",
+    "flag": "🇯🇴",
+    "x": 575.7,
+    "y": 368.3
+  },
+  {
+    "id": "AZ",
+    "name": "Ozarbayjon",
+    "flag": "🇦🇿",
+    "x": 614.8,
+    "y": 338.9
+  },
+  {
+    "id": "AM",
+    "name": "Armaniston",
+    "flag": "🇦🇲",
+    "x": 599.8,
+    "y": 339.7
+  },
+  {
+    "id": "GE",
+    "name": "Gruziya",
+    "flag": "🇬🇪",
+    "x": 600.6,
+    "y": 334
+  },
+  {
+    "id": "DE",
+    "name": "Germaniya",
+    "flag": "🇩🇪",
+    "x": 512.4,
+    "y": 289.3
+  },
+  {
+    "id": "US",
+    "name": "AQSh",
+    "flag": "🇺🇸",
+    "x": 267,
+    "y": 337.8
+  }
+]

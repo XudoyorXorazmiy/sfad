@@ -1,0 +1,252 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Enums ────────────────────────────────────────────────────────────────
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+enum Status {
+  DRAFT
+  PUBLISHED
+}
+
+enum Badge {
+  NEW
+  HIT
+  SUGAR_FREE
+}
+
+enum BlockType {
+  TEXT
+  RICHTEXT
+  IMAGE
+  LIST
+  STATS
+  FAQ
+  TIMELINE
+  STEPS
+  ACCORDION
+}
+
+enum FormType {
+  PARTNER
+  AGENT
+  VACANCY
+  CONTACT
+  PRODUCT_INQUIRY
+}
+
+enum SubStatus {
+  NEW
+  IN_PROGRESS
+  DONE
+  SPAM
+}
+
+// ─── Auth ─────────────────────────────────────────────────────────────────
+
+model User {
+  id        String     @id @default(cuid())
+  email     String     @unique
+  password  String // bcrypt hash
+  name      String
+  role      Role       @default(EDITOR)
+  isActive  Boolean    @default(true)
+  createdAt DateTime   @default(now())
+  auditLogs AuditLog[]
+}
+
+// ─── Katalog ──────────────────────────────────────────────────────────────
+
+model Category {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        Json // {uz,ru,en,ar}
+  description Json?
+  image       String?
+  order       Int       @default(0)
+  isActive    Boolean   @default(true)
+  products    Product[]
+  seo         Seo?      @relation(fields: [seoId], references: [id])
+  seoId       String?   @unique
+}
+
+model Product {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String // brend nomi — tarjima qilinmaydi
+  description Json? // {uz,ru,en,ar}
+  image       String // asosiy rasm
+  gallery     String[] // qo'shimcha rasmlar
+  categoryId  String?
+  category    Category? @relation(fields: [categoryId], references: [id])
+  shelfLife   String? // "12 oy"
+  weight      String? // "3 kg"
+  packaging   String? // "Vaznda / Karobka / Shou-boks"
+  badge       Badge?
+  isPackaged  Boolean   @default(false) // "Kilogramm" / "Qadoqlangan" tab
+  isFeatured  Boolean   @default(false) // bosh sahifa karuselida
+  order       Int       @default(0)
+  status      Status    @default(PUBLISHED)
+  seo         Seo?      @relation(fields: [seoId], references: [id])
+  seoId       String?   @unique
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([categoryId, status, order])
+}
+
+// ─── Yangiliklar ──────────────────────────────────────────────────────────
+
+model Article {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       Json
+  excerpt     Json
+  content     Json // Tiptap HTML, har til uchun
+  coverImage  String?
+  category    String? // "Eksport" | "Kompaniya" | "Yangi mahsulotlar"
+  isFeatured  Boolean   @default(false)
+  status      Status    @default(DRAFT)
+  publishedAt DateTime?
+  readingTime Int? // daqiqa, avtomatik
+  seo         Seo?      @relation(fields: [seoId], references: [id])
+  seoId       String?   @unique
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([status, publishedAt])
+}
+
+// ─── Sahifa bloklari ──────────────────────────────────────────────────────
+
+model Block {
+  id       String    @id @default(cuid())
+  page     String // "home" | "products" | "about" | "export" | "news" | "contacts"
+  key      String // "hero", "mission", "values", ...
+  type     BlockType
+  data     Json // blok tuzilishi (ko'p tilli maydonlar ichida)
+  order    Int       @default(0)
+  isActive Boolean   @default(true)
+
+  @@unique([page, key])
+  @@index([page, order])
+}
+
+// ─── Eksport xaritasi ─────────────────────────────────────────────────────
+
+model ExportCountry {
+  id       String  @id @default(cuid())
+  isoCode  String  @unique // "KZ" — SVG path id bilan bog'lanadi
+  name     Json
+  flag     String // emoji
+  x        Float
+  y        Float
+  order    Int     @default(0)
+  isActive Boolean @default(true)
+}
+
+// ─── SEO ──────────────────────────────────────────────────────────────────
+
+model Seo {
+  id             String    @id @default(cuid())
+  metaTitle      Json?
+  metaDesc       Json?
+  ogImage        String?
+  canonical      String?
+  noindex        Boolean   @default(false)
+  keywords       Json?
+  structuredData Json?
+  category       Category?
+  product        Product?
+  article        Article?
+  pageSeo        PageSeo?
+}
+
+model PageSeo {
+  id    String @id @default(cuid())
+  path  String @unique // "/", "/mahsulotlar", ...
+  seoId String @unique
+  seo   Seo    @relation(fields: [seoId], references: [id], onDelete: Cascade)
+}
+
+// ─── Arizalar ─────────────────────────────────────────────────────────────
+
+model Submission {
+  id        String    @id @default(cuid())
+  type      FormType
+  data      Json
+  status    SubStatus @default(NEW)
+  note      String?
+  ip        String?
+  createdAt DateTime  @default(now())
+
+  @@index([type, status, createdAt])
+}
+
+// ─── Media ────────────────────────────────────────────────────────────────
+
+model Media {
+  id        String   @id @default(cuid())
+  url       String
+  filename  String
+  mimeType  String
+  size      Int
+  width     Int?
+  height    Int?
+  alt       Json?
+  folder    String? // "products" | "news" | "pages"
+  createdAt DateTime @default(now())
+
+  @@index([folder, createdAt])
+}
+
+// ─── Menyu / Sozlamalar / Redirect / Log ─────────────────────────────────
+
+model MenuItem {
+  id       String     @id @default(cuid())
+  location String // "header" | "footer"
+  label    Json
+  url      String
+  order    Int        @default(0)
+  parentId String?
+  parent   MenuItem?  @relation("MenuChildren", fields: [parentId], references: [id])
+  children MenuItem[] @relation("MenuChildren")
+  isActive Boolean    @default(true)
+
+  @@index([location, order])
+}
+
+model Setting {
+  key   String @id // "phone", "email", ...
+  value Json
+}
+
+model Redirect {
+  id   String @id @default(cuid())
+  from String @unique
+  to   String
+  code Int    @default(301)
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  action    String // "create" | "update" | "delete"
+  entity    String // "Product" | "Article" ...
+  entityId  String
+  changes   Json?
+  createdAt DateTime @default(now())
+
+  @@index([entity, createdAt])
+}
