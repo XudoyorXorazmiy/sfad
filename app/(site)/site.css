@@ -70,3 +70,17 @@ input,textarea{font-family:inherit}
 @media (min-width: 901px){
   #burger{ display: none !important; }
 }
+
+/* Maqola matni (Tiptap chiqishi) */
+.sfad-article h2{ font-size:1.5rem; margin:32px 0 12px; }
+.sfad-article h3{ font-size:1.25rem; margin:26px 0 10px; }
+.sfad-article p{ margin:0 0 18px; }
+.sfad-article ul,.sfad-article ol{ margin:0 0 18px; padding-inline-start:22px; }
+.sfad-article li{ margin-bottom:8px; }
+.sfad-article a{ color:var(--sfad-red); text-decoration:underline; }
+.sfad-article img{ max-width:100%; height:auto; border-radius:14px; margin:22px 0; }
+.sfad-article blockquote{
+  margin:24px 0; padding:16px 22px; background:var(--white);
+  border-inline-start:3px solid var(--sfad-red); border-radius:0 12px 12px 0;
+}
+.sfad-article hr{ border:0; border-top:1px solid var(--line); margin:32px 0; }
